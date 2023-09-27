@@ -51,11 +51,6 @@ const Write = () => {
                         <input type="radio" name="cat" value="CATEGORIA5" id="categoria5" />
                         <label htmlFor="categoria5">CATEGORÍA1</label>
                     </div>
-
-
-
-
-
                 </div>
             </div>
         </div>
