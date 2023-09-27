@@ -1,10 +1,13 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Logo from "../img/logo_uta.png"
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import Logo from "../img/logo_uta.png";
+import { AuthContext } from "../context/authContext";
 
 const Navbar = () => {
+    const { currentUser, logout } = useContext(AuthContext);
+
     return (
-        <div className='navbar'>
+        <div className="navbar">
             <div className="container">
                 <div className="logo">
                     <Link to="/">
@@ -27,13 +30,21 @@ const Navbar = () => {
                     <Link className="link" to="/?cat=categoria5">
                         <h6>CATEGORIA5</h6>
                     </Link>
-                    <span>Rafael</span>
-                    <span>Salir</span>
-                    <span className='write'><Link to="/write">Postear</Link></span>
+                    <span>{currentUser?.username}</span>
+                    {currentUser ? (
+                        <span onClick={logout}>Salir</span>
+                    ) : (
+                        <Link className="link" to="/login">
+                            Iniciar sesión
+                        </Link>
+                    )}
+                    <span className="write">
+                        <Link to="/write">Postear</Link>
+                    </span>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Navbar
+export default Navbar;
