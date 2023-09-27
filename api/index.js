@@ -1,20 +1,23 @@
 import express from "express";
-import authRoutes from "./routes/auth.js"
-import userRoutes from "./routes/user.js"
-import postRoutes from "./routes/posts.js"
+import authRoutes from "./routes/auth.js";
+import userRoutes from "./routes/users.js";
+import postRoutes from "./routes/posts.js";
+import cors from "cors"; // Importa el módulo cors
 
-const app = express()
+const app = express();
 
-app.use(express.json())
-app.use("/api/auth", authRoutes)
-app.use("/api/users", userRoutes)
-app.use("/api/posts", postRoutes)
+// CORS
+app.use(cors({
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true
+}));
 
+app.use(express.json());
+app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/posts", postRoutes);
 
-app.get("/test", (req, res)=>{
-    res.json("It works")
-})
-
-app.listen(8800, ()=>{
-    console.log("Connected to the server")
-})
+app.listen(8800, () => {
+    console.log("Connected!");
+});
