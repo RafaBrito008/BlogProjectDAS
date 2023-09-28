@@ -104,9 +104,9 @@ $mainColor: #ad272e;
             border: 1px solid white;
 
             &:hover {
-              color: teal;
+              color: $mainColor;
               background-color: white;
-              border: 1px solid teal;
+              border: 1px solid $mainColor;
             }
           }
         }

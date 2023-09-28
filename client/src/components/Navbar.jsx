@@ -33,19 +33,20 @@ const Navbar = () => {
           <Link className="link" to="/?cat=categoria6">
             <h6>CATEGORIA6</h6>
           </Link>
-          <span>{currentUser?.username}</span>
-          {currentUser ? (
-            <span onClick={logout}>Logout</span>
-          ) : (
-            <Link className="link" to="/login">
-              Login
-            </Link>
-          )}
           <span className="write">
             <Link className="link" to="/write">
-              Write
+              <b>Post</b>
             </Link>
           </span>
+          <span>{currentUser?.username}</span>
+          {currentUser ? (
+            <span onClick={logout}><b>Salir</b></span>
+          ) : (
+            <Link className="link" to="/login">
+              <b>Iniciar sesión</b>
+            </Link>
+          )}
+          
         </div>
       </div>
     </div>
