@@ -4,7 +4,7 @@ $mainColor: #ad272e;
   display: flex;
   justify-content: center;
   .container {
-    width: 1024px;
+    width: 90%;
 
     .link {
       text-decoration: none;
@@ -22,7 +22,7 @@ $mainColor: #ad272e;
 
       h1 {
         font-size: 20px;
-        color: teal;
+        color: white;
         margin-bottom: 20px;
       }
 
@@ -32,6 +32,7 @@ $mainColor: #ad272e;
         padding: 50px;
         background-color: white;
         width: 200px;
+        border-radius: 12px;
         gap: 20px;
 
         input {
@@ -43,8 +44,9 @@ $mainColor: #ad272e;
         button {
           padding: 10px;
           border: none;
-          background-color: teal;
+          background-color: $mainColor;
           cursor: pointer;
+          border-radius: 12px;
           color: white;
         }
 
@@ -78,9 +80,10 @@ $mainColor: #ad272e;
           display: flex;
           align-items: center;
           gap: 10px;
+          font-size: 18px;
 
           h6 {
-            font-size: 16px;
+            font-size: 20px;
             font-weight: 300;
           }
 
@@ -185,13 +188,13 @@ $mainColor: #ad272e;
               border: none;
               cursor: pointer;
               background-color: white;
-              border: 1px solid teal;
-              color: teal;
+              border: 1px solid $mainColor;
+              color: $mainColor;
 
               &:hover {
                 border: 1px solid white;
                 background-color: $mainColor;
-                color: black;
+                color: white;
               }
             }
           }
@@ -286,14 +289,14 @@ $mainColor: #ad272e;
             padding: 7.5px 15px;
             border: none;
             cursor: pointer;
-            color: teal;
+            color: $mainColor;
             background-color: white;
-            border: 1px solid teal;
+            border: 1px solid $mainColor;
 
             &:hover {
               border: 1px solid white;
               background-color: $mainColor;
-              color: black;
+              color: white;
             }
           }
         }

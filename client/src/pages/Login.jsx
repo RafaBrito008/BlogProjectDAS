@@ -31,26 +31,26 @@ const Login = () => {
   };
   return (
     <div className="auth">
-      <h1>Login</h1>
+      <h1>Iniciar Sesión</h1>
       <form>
         <input
           required
           type="text"
-          placeholder="username"
+          placeholder="Nombre de usuario"
           name="username"
           onChange={handleChange}
         />
         <input
           required
           type="password"
-          placeholder="password"
+          placeholder="Contraseña"
           name="password"
           onChange={handleChange}
         />
-        <button onClick={handleSubmit}>Login</button>
+        <button onClick={handleSubmit}>Iniciar Sesión</button>
         {err && <p>{err}</p>}
         <span>
-          Don't you have an account? <Link to="/register">Register</Link>
+          ¿No tienes una cuenta? <Link to="/register">Regístrate</Link>
         </span>
       </form>
     </div>

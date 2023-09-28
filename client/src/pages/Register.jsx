@@ -29,33 +29,33 @@ const Register = () => {
 
   return (
     <div className="auth">
-      <h1>Register</h1>
+      <h1>Registrarse</h1>
       <form>
         <input
           required
           type="text"
-          placeholder="username"
+          placeholder="Nombre de usuario"
           name="username"
           onChange={handleChange}
         />
         <input
           required
           type="email"
-          placeholder="email"
+          placeholder="Correo electrónico"
           name="email"
           onChange={handleChange}
         />
         <input
           required
           type="password"
-          placeholder="password"
+          placeholder="Contraseña"
           name="password"
           onChange={handleChange}
         />
-        <button onClick={handleSubmit}>Register</button>
+        <button onClick={handleSubmit}>Registrarse</button>
         {err && <p>{err}</p>}
         <span>
-          Do you have an account? <Link to="/login">Login</Link>
+          ¿Ya tienes una cuenta? <Link to="/login">Inicia sesión</Link>
         </span>
       </form>
     </div>

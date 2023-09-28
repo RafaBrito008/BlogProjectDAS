@@ -5,6 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Menu from "../components/Menu";
 import axios from "axios";
 import moment from "moment";
+import "moment/locale/es";
 import { useContext } from "react";
 import { AuthContext } from "../context/authContext";
 import DOMPurify from "dompurify";
@@ -31,32 +32,33 @@ const Single = () => {
     fetchData();
   }, [postId]);
 
-  const handleDelete = async ()=>{
+  const handleDelete = async () => {
     try {
       await axios.delete(`/posts/${postId}`);
-      navigate("/")
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
-  }
+  };
 
-  const getText = (html) =>{
-    const doc = new DOMParser().parseFromString(html, "text/html")
-    return doc.body.textContent
-  }
+  const formattedDate = moment(post.date).format("DD-MM-YYYY"); // Formatear la fecha
+
+  const getText = (html) => {
+    const doc = new DOMParser().parseFromString(html, "text/html");
+    return doc.body.textContent;
+  };
 
   return (
     <div className="single">
       <div className="content">
         <img src={`../upload/${post?.img}`} alt="" />
         <div className="user">
-          {post.userImg && <img
-            src={post.userImg}
-            alt=""
-          />}
+          {post.userImg && (
+            <img src={post.userImg} alt="" />
+          )}
           <div className="info">
             <span>{post.username}</span>
-            <p>Posted {moment(post.date).fromNow()}</p>
+            <p>Publicado {moment(post.date).fromNow()}</p>
           </div>
           {currentUser && currentUser.username === post.username && (
   <div className="edit">
