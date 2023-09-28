@@ -23,16 +23,17 @@ DROP TABLE IF EXISTS `posts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `posts` (
-  `id_post` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `title` varchar(500) NOT NULL,
   `desc` varchar(1000) NOT NULL,
-  `img_post` varchar(255) NOT NULL,
+  `img` varchar(255) NOT NULL,
   `date` datetime NOT NULL,
-  `user_id` int DEFAULT NULL,
-  PRIMARY KEY (`id_post`),
-  KEY `user_id_idx` (`user_id`),
-  CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `uid` int NOT NULL,
+  `cat` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id_idx` (`uid`),
+  CONSTRAINT `user_id` FOREIGN KEY (`uid`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,12 +44,12 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
-  `id_user` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(45) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `img_user` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id_user`)
+  `img` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -61,4 +62,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-26 23:40:17
+-- Dump completed on 2023-09-27 22:11:05
